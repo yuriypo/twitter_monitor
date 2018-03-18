@@ -7,7 +7,9 @@ import time
 class HashTagsSummarizer():
     """
     Component responsibility is to summarize hash_tags.
+    stores hashtags in lookup table ("HashTags") -> (count , update_time)
     """
+    
     MAX_TOP_HASHTAGS_TO_KEEP = 100
     DEFAUL_CLEAN_UP_FREQUENCY = 100
     DEFAUL_CLEAN_UP_TTL = 60 * 60 * 24 *7
@@ -27,6 +29,7 @@ class HashTagsSummarizer():
         if self.max_top_hash_tags_to_keep is None:
             self.clean_up_ttl = HashTagsSummarizer.MAX_TOP_HASHTAGS_TO_KEEP
 
+    # returns hashtags sorted by appearance count, desc
     def get_top_hash_tags(self, count):
         return sorted(self.hash_tags_lookup.items(), key=lambda x: x[1][0], reverse=True)[0:count]
 
