@@ -1,0 +1,5 @@
+pylint==1.7.4
+TwitterAPI==2.5.0
+argparse
+PyQt5
+PyQtGraph
