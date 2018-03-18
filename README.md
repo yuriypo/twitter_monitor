@@ -1,4 +1,5 @@
 # Twitter monitor Application
+### Monitor HashTags volumes for specific keyword, example "USA President"
 
 written using [Python 3](https://www.python.org/download/releases/3.0/)
 
