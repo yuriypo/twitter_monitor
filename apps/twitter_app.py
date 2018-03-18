@@ -1,16 +1,18 @@
 import sys
 import argparse
-import signal, os
+import signal
+import os
 import logging
-import time
+
+from ioc.ioc_manager import get_twitter_follow_up_monitor
 
 from config.log import configure_logging
 configure_logging()
 
-from ioc.ioc_manager import get_twitter_follow_up_monitor
+
 
 parser = argparse.ArgumentParser(description='Follow up sentence from Twitter.')
-parser.add_argument('--sentence', type=str,required=True, help='Sentence to follow up')
+parser.add_argument('--sentence', type=str, required=True, help='Sentence to follow up')
 
 # App entry point
 def main():
@@ -33,7 +35,6 @@ def main():
 
     monitor.follow_up(follow_up_sentence)
 
-if __name__== "__main__":
-  main()
 
-
+if __name__ == "__main__":
+    main()

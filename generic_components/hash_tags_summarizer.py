@@ -42,16 +42,18 @@ class HashTagsSummarizer():
 
         for hashtag in hashtags:
             hashtag = hashtag.lower().strip()
-            self.hash_tags_lookup[hashtag] = (self.hash_tags_lookup.get(hashtag, (0, 0))[0] + 1, time.time())
+            self.hash_tags_lookup[hashtag] = \
+                (self.hash_tags_lookup.get(hashtag, (0, 0))[0] + 1, time.time())
 
     def clean_up_procedure(self):
         to_clean_up = sorted(self.hash_tags_lookup.items(),\
-                             key=lambda x: x[1][1],reverse=True)[self.max_top_hash_tags_to_keep:]
+                             key=lambda x: x[1][1], reverse=True)[self.max_top_hash_tags_to_keep:]
         cleaned = 0
         for hashtag, count in to_clean_up:
             if time.time() - count[1] > self.clean_up_ttl:
                 self.hash_tags_lookup.pop(hashtag)
                 cleaned += 1
 
-        self.logger.info("Cleaning %d hashtags." % (cleaned))
-        self.logger.info("Remaining %d hashtags : %s" % (len(self.hash_tags_lookup), str(self.hash_tags_lookup)))
+        self.logger.info("Cleaning %d hashtags.", cleaned)
+        self.logger.info("Remaining %d hashtags : %s",\
+                         len(self.hash_tags_lookup), str(self.hash_tags_lookup))

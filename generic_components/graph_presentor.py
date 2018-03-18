@@ -2,7 +2,7 @@
 
 
 import pyqtgraph
-from pyqtgraph.Qt import QtCore, QtGui
+from pyqtgraph.Qt import QtGui
 import numpy as np
 
 class GraphPresentor():
@@ -20,7 +20,8 @@ class GraphPresentor():
         self.pyqtgraph = pyqtgraph.plot()
 
         self.pyqtgraph.setWindowTitle('pyqtgraph example: BarGraphItem')
-        self.pyqtgraph.resize(GraphPresentor.DEFAULT_X_AXIS_SIZE, GraphPresentor.DEFAULT_Y_AXIS_SIZE)
+        self.pyqtgraph.resize(GraphPresentor.DEFAULT_X_AXIS_SIZE, \
+                              GraphPresentor.DEFAULT_Y_AXIS_SIZE)
 
         x = np.arange(GraphPresentor.DEFAULT_NUMBER_OF_TOP_ITEMS_TO_WORK_WITH)
         y = np.array([0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
@@ -39,10 +40,12 @@ class GraphPresentor():
         counts = [datum[1][0] for datum in data]
 
         if len(counts) < GraphPresentor.DEFAULT_NUMBER_OF_TOP_ITEMS_TO_WORK_WITH:
-            counts.extend([0 for _ in range(GraphPresentor.DEFAULT_NUMBER_OF_TOP_ITEMS_TO_WORK_WITH - len(counts))])
+            counts.extend([0 for _ in range(GraphPresentor.DEFAULT_NUMBER_OF_TOP_ITEMS_TO_WORK_WITH
+                                            - len(counts))])
 
         if len(labels) < GraphPresentor.DEFAULT_NUMBER_OF_TOP_ITEMS_TO_WORK_WITH:
-            labels.extend(["" for _ in range(GraphPresentor.DEFAULT_NUMBER_OF_TOP_ITEMS_TO_WORK_WITH - len(counts))])
+            labels.extend(["" for _ in range(GraphPresentor.DEFAULT_NUMBER_OF_TOP_ITEMS_TO_WORK_WITH
+                                             - len(counts))])
 
         ticks = [list(zip(range(GraphPresentor.DEFAULT_NUMBER_OF_TOP_ITEMS_TO_WORK_WITH), labels))]
 
@@ -51,7 +54,11 @@ class GraphPresentor():
         x = np.arange(GraphPresentor.DEFAULT_NUMBER_OF_TOP_ITEMS_TO_WORK_WITH)
         y = np.array(counts)
         self.bar_graph.setOpts(x0=range(GraphPresentor.\
-                                        DEFAULT_NUMBER_OF_TOP_ITEMS_TO_WORK_WITH), x=x, height=y, width=0.9, brush='r')
+                                        DEFAULT_NUMBER_OF_TOP_ITEMS_TO_WORK_WITH),
+                               x=x,
+                               height=y,
+                               width=0.9,
+                               brush='r')
 
     def present(self):
         self.app = QtGui.QApplication.instance()
@@ -60,4 +67,3 @@ class GraphPresentor():
 
     def stop(self):
         self.app.quit()
-

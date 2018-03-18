@@ -1,4 +1,5 @@
-import unittest, os
+import unittest
+import os
 
 from generic_components import TwitterStreamListener
 from generic_components import TwitterStreamer
@@ -44,11 +45,3 @@ class Test(unittest.TestCase):
         self.assertTrue(isinstance(all_hash_tags[0][0], str))
         self.assertTrue(isinstance(all_hash_tags[0][1][0], int))
         self.assertTrue(isinstance(all_hash_tags[0][1][1], float))
-
-
-
-
-
-
-
-

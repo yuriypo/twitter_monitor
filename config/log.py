@@ -67,9 +67,6 @@ PROD_LOGGING_CONFIG = {
     "handlers": _COMMON_HANDLERS,
     "loggers": {
         "":                     _LOGGER_CONSOLE,
-        "tornado.access":       _LOGGER_CONSOLE,
-        "tornado.application":  _LOGGER_CONSOLE,
-        "tornado.general":      _LOGGER_CONSOLE,
         "TwitterStreamListener":_LOGGER_CONSOLE,
         "HashTagsSummarizer":   _LOGGER_CONSOLE,
         "TwitterStreamer":   _LOGGER_CONSOLE,
@@ -87,7 +84,6 @@ CONFIGURATIONS = {
 
 def configure_logging():
     from config.env import ENV_TYPE
-    from config.log import CONFIGURATIONS
 
     from logging import config
     config.dictConfig(CONFIGURATIONS[ENV_TYPE])

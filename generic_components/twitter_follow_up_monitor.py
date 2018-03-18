@@ -17,6 +17,7 @@ class TwitterFollowUpMonitor():
         self.data_streamer = data_streamer
         self.graph = graph
         self.is_running = True
+        self.thread = None
 
     def follow_up(self, follow_up_sentence):
 
@@ -39,13 +40,3 @@ class TwitterFollowUpMonitor():
     def close(self):
         self.is_running = False
         self.graph.stop()
-
-
-
-
-
-
-
-
-
-

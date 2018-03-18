@@ -14,7 +14,9 @@ class TwitterStreamer():
         self.twitter_stream_listener = twitter_stream_listener
         self.hash_tags_summarizer = hash_tags_summarizer
 
-        self.top_hash_tags_to_return = int(top_hash_tags_to_return) if top_hash_tags_to_return is not None else None
+        self.top_hash_tags_to_return = int(top_hash_tags_to_return) \
+            if top_hash_tags_to_return is not None else None
+
         if self.top_hash_tags_to_return is None:
             self.top_hash_tags_to_return = TwitterStreamer.TOP_HASH_TAGS_NUMBER_TO_RETURN
 

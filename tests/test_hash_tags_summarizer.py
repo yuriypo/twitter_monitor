@@ -21,13 +21,12 @@ class Test(unittest.TestCase):
         tags_to_be_removed = ["ToRemove", "ToRemove2"]
 
         hash_tags = [tags_to_be_removed,
-                        ["a", "A ", "a ", "A", "b", "B "],
-                        ["a", "A ", "a ", "A", "b", "B "],
-                        ["a", "A ", "a ", "A", "b", "B "],
-                        ["a", "A ", "a ", "A", "b", "B "],
-                        ["a", "A ", "a ", "A", "b", "B "]]
+                     ["a", "A ", "a ", "A", "b", "B "],
+                     ["a", "A ", "a ", "A", "b", "B "],
+                     ["a", "A ", "a ", "A", "b", "B "],
+                     ["a", "A ", "a ", "A", "b", "B "],
+                     ["a", "A ", "a ", "A", "b", "B "]]
 
-        iteration = 0
         for iteration_hashtags in hash_tags:
             time.sleep(1)
             summarizer.consume_hashtags(iteration_hashtags)
@@ -41,5 +40,3 @@ class Test(unittest.TestCase):
         # count
         self.assertEqual(top_hash_tags[0][1][0], 20)
         self.assertEqual(top_hash_tags[1][1][0], 10)
-
-

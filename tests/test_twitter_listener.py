@@ -1,4 +1,5 @@
-import unittest, os
+import unittest
+import os
 
 from generic_components.twitter_stream_listener import TwitterStreamListener
 from config.log import configure_logging
@@ -34,7 +35,4 @@ class Test(unittest.TestCase):
             else:
                 iterations -= 1
 
-        print (all_hash_tags)
         self.assertGreater(len(all_hash_tags), 0)
-
-
