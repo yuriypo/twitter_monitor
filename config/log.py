@@ -9,15 +9,8 @@ _FORMATTER_DEFAULT = {
     "format": json.dumps(_FORMAT_DEFAULT)
 }
 
-_FORMAT_DEFAULT["correlation_id"] = "%(correlation_id)s"
-
-_FORMATTER_CORRELATION_ID = {
-    "format": json.dumps(_FORMAT_DEFAULT)
-}
-
 _COMMON_FORMATTERS = {
-    "default": _FORMATTER_DEFAULT,
-    "correlation_id_formatter": _FORMATTER_CORRELATION_ID
+    "default": _FORMATTER_DEFAULT
 }
 
 _HANDLER_CONSOLE = {
@@ -27,8 +20,6 @@ _HANDLER_CONSOLE = {
     "filters": []
 }
 
-_HANDLER_CONSOLE_CORRELATION_ID = dict(_HANDLER_CONSOLE, formatter="correlation_id_formatter")
-
 
 _LOGGER_CONSOLE = {
     "level": "DEBUG",
@@ -36,15 +27,8 @@ _LOGGER_CONSOLE = {
     "handlers": ["console"]
 }
 
-_LOGGER_CONSOLE_CORRELATION_ID = {
-    "level": "DEBUG",
-    "propagate": 0,
-    "handlers": ["console_correlation_id"]
-}
-
 _COMMON_HANDLERS = {
-    "console": _HANDLER_CONSOLE,
-    "console_correlation_id": _HANDLER_CONSOLE_CORRELATION_ID
+    "console": _HANDLER_CONSOLE
 }
 
 
@@ -59,7 +43,7 @@ TEST_LOGGING_CONFIG = {
     "loggers": {
         "": _LOGGER_CONSOLE,
         "TwitterStreamListener": _LOGGER_CONSOLE,
-        "HashTagsSummarizer": _LOGGER_CONSOLE,
+        "HashTagsSummarizer": _LOGGER_CONSOLE
     }
 }
 
@@ -71,6 +55,9 @@ DEV_LOGGING_CONFIG = {
         "": _LOGGER_CONSOLE,
         "TwitterStreamListener":_LOGGER_CONSOLE,
         "HashTagsSummarizer":   _LOGGER_CONSOLE,
+        "TwitterStreamer":   _LOGGER_CONSOLE,
+        "GraphPresentor":   _LOGGER_CONSOLE,
+        "TwitterFollowUpMonitor":   _LOGGER_CONSOLE
     }
 }
 
@@ -85,7 +72,9 @@ PROD_LOGGING_CONFIG = {
         "tornado.general":      _LOGGER_CONSOLE,
         "TwitterStreamListener":_LOGGER_CONSOLE,
         "HashTagsSummarizer":   _LOGGER_CONSOLE,
-        "AliasesHandler":       _LOGGER_CONSOLE_CORRELATION_ID
+        "TwitterStreamer":   _LOGGER_CONSOLE,
+        "GraphPresentor":   _LOGGER_CONSOLE,
+        "TwitterFollowUpMonitor":   _LOGGER_CONSOLE
     }
 }
 

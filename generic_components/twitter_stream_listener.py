@@ -1,14 +1,13 @@
 # -*- coding: utf-8 -*-
-"""
-Simple example using BarGraphItem
-"""
+
 
 from TwitterAPI import TwitterAPI
 import logging
 
-#override tweepy.StreamListener to add logic to on_status
 class TwitterStreamListener():
-
+    """
+    Component is reponsible bringing data from twitter solely.
+    """
     def __init__(self, consumer_key, consumer_secret, access_token_key, access_token_secret):
         self.logger = logging.getLogger(TwitterStreamListener.__name__)
         self.api = TwitterAPI(consumer_key, consumer_secret, access_token_key, access_token_secret)

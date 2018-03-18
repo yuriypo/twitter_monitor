@@ -7,7 +7,9 @@ from generic_components import \
     TwitterStreamer, \
     GraphPresentor, \
     TwitterFollowUpMonitor
-
+"""
+Module responsible for all objects instantiation.
+"""
 configure_logging()
 
 def get_twitter_stream_listener():

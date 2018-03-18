@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-"""
-Simple example using BarGraphItem
-"""
+
 
 import logging
 import time
 
-#override tweepy.StreamListener to add logic to on_status
 class HashTagsSummarizer():
+    """
+    Component responsibility is to summarize hash_tags.
+    """
     MAX_TOP_HASHTAGS_TO_KEEP = 100
     DEFAUL_CLEAN_UP_FREQUENCY = 100
     DEFAUL_CLEAN_UP_TTL = 60 * 60 * 24 *7

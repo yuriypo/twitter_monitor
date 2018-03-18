@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-"""
-Simple example using BarGraphItem
-"""
 
 import logging
 
 class TwitterStreamer():
-
+    """
+    Component responsibility is to provide top n hash tags, based on dynamically coming data.
+    Component orchestrates 2 separated components in order to achive the functionality.
+    """
     TOP_HASH_TAGS_NUMBER_TO_RETURN = 10
 
     def __init__(self, twitter_stream_listener, hash_tags_summarizer, top_hash_tags_to_return=None):

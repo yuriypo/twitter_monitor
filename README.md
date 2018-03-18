@@ -1,20 +1,20 @@
 # Twitter monitor Application
 
-written on [Python 3](https://www.python.org/download/releases/3.0/) 
+written using [Python 3](https://www.python.org/download/releases/3.0/)
 
 ## Infrastructure dependencies
 
-pylint==1.7.4
-TwitterAPI==2.5.0
-argparse
-PyQt5
-PyQtGraph
+* pylint==1.7.4
+* TwitterAPI==2.5.0
+* argparse
+* PyQt5
+* PyQtGraph
 
 ## Configurations
 
-Configurations Secrets can be set via Environment Variables.
+Configurations Secrets should be set via Environment Variables.
 
-file activate has demo account use it 'source ./activate'
+file activate has variables to use
 
 ## Building, testing and running
 

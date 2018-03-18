@@ -12,15 +12,19 @@ from ioc.ioc_manager import get_twitter_follow_up_monitor
 parser = argparse.ArgumentParser(description='Follow up sentence from Twitter.')
 parser.add_argument('--sentence', type=str,required=True, help='Sentence to follow up')
 
+# App entry point
 def main():
     parser.parse_args(sys.argv[1:])
 
     follow_up_sentence = parser.parse_args(sys.argv[1:]).sentence
 
+    logging.getLogger("").info("Starting twitter monitoring for sentecne " + follow_up_sentence)
+
     monitor = get_twitter_follow_up_monitor()
 
+    # Process exit handling.
     def sig_handler(sig):
-        logging.getLogger("SigHandler").info('%s Caught signal: %s Exiting', os.getpid(), sig)
+        logging.getLogger("SigHandler").info('%s Caught signal: %s Exiting.', os.getpid(), sig)
         monitor.close()
         time.sleep(2)
         sys.exit(0)
