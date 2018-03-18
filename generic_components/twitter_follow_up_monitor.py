@@ -26,7 +26,7 @@ class TwitterFollowUpMonitor():
 
             for hash_tags in self.data_streamer.stream_data(follow_up_sentence):
 
-                #Point where decision if to keep streaming taken
+                # Point where decision if to keep streaming taken
                 if run_indicator.is_running is False:
                     return
                 self.graph.update(hash_tags)

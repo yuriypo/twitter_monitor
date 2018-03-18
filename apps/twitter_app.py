@@ -26,7 +26,6 @@ def main():
     def sig_handler(sig):
         logging.getLogger("SigHandler").info('%s Caught signal: %s Exiting.', os.getpid(), sig)
         monitor.close()
-        time.sleep(2)
         sys.exit(0)
 
     signal.signal(signal.SIGTERM, lambda sig, frame: sig_handler(sig))

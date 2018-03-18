@@ -9,7 +9,7 @@ class HashTagsSummarizer():
     Component responsibility is to summarize hash_tags.
     stores hashtags in lookup table ("HashTags") -> (count , update_time)
     """
-    
+
     MAX_TOP_HASHTAGS_TO_KEEP = 100
     DEFAUL_CLEAN_UP_FREQUENCY = 100
     DEFAUL_CLEAN_UP_TTL = 60 * 60 * 24 *7
